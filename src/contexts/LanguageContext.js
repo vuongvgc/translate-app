@@ -20,3 +20,4 @@ export class LanguageStore extends Component {
     );
   }
 }
+export default Context;
