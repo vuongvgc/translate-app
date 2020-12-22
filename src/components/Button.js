@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import contextLanguage from "../contexts/contextLanguage";
 import colorContext from "../contexts/ColorContext";
+import LanguageContext from "../contexts/LanguageContext";
 class Button extends Component {
   // static contextType = contextLanguage;
-  renderSubmit = (value) => {
-    return value === "english" ? "submit" : " xác nhận";
+  renderSubmit = (language) => {
+    return language === "english" ? "submit" : " xác nhận";
   };
   render() {
     // console.log(this.context);
@@ -14,9 +14,9 @@ class Button extends Component {
         <colorContext.Consumer>
           {(color) => (
             <button className={`ui button ${color}`}>
-              <contextLanguage.Consumer>
-                {(value) => this.renderSubmit(value)}
-              </contextLanguage.Consumer>
+              <LanguageContext.Consumer>
+                {({ language }) => this.renderSubmit(language)}
+              </LanguageContext.Consumer>
             </button>
           )}
         </colorContext.Consumer>
